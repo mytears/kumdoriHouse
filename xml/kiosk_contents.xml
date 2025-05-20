@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<KIOSK>
+  <HEADER>
+  </HEADER>
+  <NOTICE_LIST>
+	<NOTICE_INFO id="1475" type="IMG">
+      <NOTICE_NAME><![CDATA[]]></NOTICE_NAME>
+      <NOTICE_DESC><![CDATA[]]></NOTICE_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/notice/1 – 1.jpg</FILE_URL>
+    </NOTICE_INFO>
+	<NOTICE_INFO id="1475" type="IMG">
+      <NOTICE_NAME><![CDATA[]]></NOTICE_NAME>
+      <NOTICE_DESC><![CDATA[]]></NOTICE_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/notice/2 – 1.jpg</FILE_URL>
+    </NOTICE_INFO>
+  </NOTICE_LIST>
+  <CONTENTS_LIST>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 001]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_01.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_01.jpg</THUM_URL>
+    </CONTENTS_INFO>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 002]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_02.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_02.jpg</THUM_URL>
+    </CONTENTS_INFO>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 003]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_03.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_03.jpg</THUM_URL>
+    </CONTENTS_INFO>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 004]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_04.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_04.jpg</THUM_URL>
+    </CONTENTS_INFO>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 005]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_05.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_05.jpg</THUM_URL>
+    </CONTENTS_INFO>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 006]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_06.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_06.jpg</THUM_URL>
+    </CONTENTS_INFO>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 007]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_07.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_07.jpg</THUM_URL>
+    </CONTENTS_INFO>
+    <CONTENTS_INFO id="1475" type="MOV">
+      <CONTENTS_NAME><![CDATA[영상 008]]></CONTENTS_NAME>
+      <CONTENTS_DESC><![CDATA[]]></CONTENTS_DESC>
+      <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
+      <FILE_URL ptime="10.0">commonfiles/contents/vod_08.mp4</FILE_URL>
+      <THUM_URL>commonfiles/contents/vod_08.jpg</THUM_URL>
+    </CONTENTS_INFO>
+  </CONTENTS_LIST>
+</KIOSK>

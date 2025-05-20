@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="265" viewBox="0 0 320 265">
+  <defs>
+    <filter id="사각형_148" x="0" y="0" width="320" height="265" filterUnits="userSpaceOnUse">
+      <feOffset dy="25" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feFlood flood-color="#bdb6d2" flood-opacity="0.631"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="bt_play_o" transform="translate(-2970 -17268)">
+    <g transform="matrix(1, 0, 0, 1, 2970, 17268)" filter="url(#사각형_148)">
+      <g id="사각형_148-2" data-name="사각형 148" transform="translate(60 35)" fill="#e4e1f1" stroke="#fff" stroke-width="5">
+        <rect width="200" height="145" rx="72.5" stroke="none"/>
+        <rect x="2.5" y="2.5" width="195" height="140" rx="70" fill="none"/>
+      </g>
+    </g>
+    <path id="다각형_2" data-name="다각형 2" d="M24.5,0,49,42H0Z" transform="translate(3155 17351) rotate(90)" fill="#9f9aae"/>
+  </g>
+</svg>

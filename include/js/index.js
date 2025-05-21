@@ -65,7 +65,7 @@ function setMainInterval() {
     
     time_gap = time_curr - m_time_last;
     time_gap = Math.floor(time_gap / 1000);
-    if (time_gap >= 90) {
+    if (time_gap >= 180000000000) {
         m_time_last = new Date().getTime();
         setMainReset();
     }
@@ -111,14 +111,12 @@ function setInitSetting(_ret_code) {
     setNoticeDrawInfo();
     
     $('#id_main_list_wrapper').html("");
-    let t_max = 6;
+    let t_max = 12;
     let t_html = "";
     let r_html = "";
     let page_cnt = Math.ceil(m_contents_list.length / t_max);
     for (let i = 0; i < page_cnt; i += 1) {
-        t_html += "<div id='id_main_list_slide_" + i + "' class='swiper-slide'>";
-        t_html += "    <ul id='id_main_list_wrap_" + i + "' class='swiper-slide-container item_list'>";
-        t_html += '    </ul>';
+        t_html += "<div id='id_main_list_slide_" + i + "' class='swiper-slide item_list'>";
         t_html += '</div>';
     }
     $('#id_main_list_wrapper').append(t_html);
@@ -126,18 +124,16 @@ function setInitSetting(_ret_code) {
     for (let i = 0; i < m_contents_list.length; i += 1) {
         let t_obj = m_contents_list[i];
         let t_id = Math.floor(i / t_max);
-        r_html += "<li class='item' onClick='javascript:onClickItem(" + i + ");'>";
-        r_html += "    <div class='inner'>";
+        r_html += "<div class='item' onClick='javascript:onClickItem(" + i + ");'>";
         r_html += "         <div class='img_zone'>";
-        r_html += "              <img src="+convFilePath(t_obj.THUM_URL)+">";
-        t_html += "         <div>";
+        r_html += "              <img src='"+convFilePath(t_obj.THUM_URL)+"'>";
+        r_html += "         </div>";
         r_html += "         <div class='txt_zone'>";
         r_html += "             <p><span>" + convStr(t_obj.CONTENTS_NAME) + "</span></p>";
-        r_html += "          </div>";
-        r_html += "      </div>";
-        r_html += "</li>";
+        r_html += "         </div>";
+        r_html += "</div>";
 
-        $('#id_main_list_wrap_' + t_id).append(r_html);
+        $('#id_main_list_slide_' + t_id).append(r_html);
         r_html = "";
     }
     

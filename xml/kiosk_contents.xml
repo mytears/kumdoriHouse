@@ -7,13 +7,13 @@
       <NOTICE_NAME><![CDATA[]]></NOTICE_NAME>
       <NOTICE_DESC><![CDATA[]]></NOTICE_DESC>
       <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
-      <FILE_URL ptime="10.0">commonfiles/notice/1 – 1.jpg</FILE_URL>
+      <FILE_URL ptime="10.0">commonfiles/notice/intro_bg1.png</FILE_URL>
     </NOTICE_INFO>
 	<NOTICE_INFO id="1475" type="IMG">
       <NOTICE_NAME><![CDATA[]]></NOTICE_NAME>
       <NOTICE_DESC><![CDATA[]]></NOTICE_DESC>
       <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359">DAY</SCH_TYPE>
-      <FILE_URL ptime="10.0">commonfiles/notice/2 – 1.jpg</FILE_URL>
+      <FILE_URL ptime="10.0">commonfiles/notice/intro_bg2.png</FILE_URL>
     </NOTICE_INFO>
   </NOTICE_LIST>
   <CONTENTS_LIST>

@@ -16,12 +16,34 @@ let m_curr_notice_type = "";
 let m_curr_notice_cnt = -1;
 let m_notice_timeout = null;
 
+let m_main_swiper;
 
 function setInit() {
 
+    m_main_swiper = new Swiper('.main_list', {
+        spaceBetween: 200, //슬라이드 간격
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {},
+        on: {
+            slideChange: function () {
+            },
+            init: function () {
+            },
+        },
+    });
+    
+    
     $(".btn_pass").on("touchstart mousedown", function (e) {
         e.preventDefault();
         onClickBtnPass(this);
+    });
+    
+    $('.screen_page').on("touchstart mousedown", function (e) {
+        e.preventDefault();
+        onClickScreenSaver();
     });
 
     $("html").on("touchstart mousedown", function (e) {
@@ -45,9 +67,7 @@ function setMainInterval() {
     time_gap = Math.floor(time_gap / 1000);
     if (time_gap >= 90) {
         m_time_last = new Date().getTime();
-        if (m_is_first_page == false) {
-            setMainReset();
-        }
+        setMainReset();
     }
 }
 
@@ -90,6 +110,53 @@ function setInitSetting(_ret_code) {
     
     setNoticeDrawInfo();
     
+    $('#id_main_list_wrapper').html("");
+    let t_max = 6;
+    let t_html = "";
+    let r_html = "";
+    let page_cnt = Math.ceil(m_contents_list.length / t_max);
+    for (let i = 0; i < page_cnt; i += 1) {
+        t_html += "<div id='id_main_list_slide_" + i + "' class='swiper-slide'>";
+        t_html += "    <ul id='id_main_list_wrap_" + i + "' class='swiper-slide-container list list_typeG'>";
+        t_html += '    </ul>';
+        t_html += '</div>';
+    }
+    $('#id_main_list_wrapper').append(t_html);
+
+    for (let i = 0; i < m_contents_list.length; i += 1) {
+        let t_obj = m_contents_list[i];
+        let t_id = Math.floor(i / t_max);
+        r_html += "<li class='item' onClick='javascript:onClickItem(" + i + ");'>";
+        r_html += "    <div class='inner'>";
+        r_html += "         <div class='img_zone'>";
+        r_html += "              <img src="+convFilePath(t_obj.THUM_URL)+">";
+        t_html += "         <div>";
+        r_html += "         <div class='txt'>";
+        r_html += "             <p><span>' + convStr(t_obj.CONTENTS_NAME) + '</span>' + '</p>";
+        r_html += "          </div>";
+        r_html += "      </div>";
+        r_html += "</li>";
+
+        $('#id_main_list_wrap_' + t_id).append(r_html);
+        r_html = '';
+    }
+    
+    
+    
+    for (let i = 0; i < m_contents_list.length; i += 1) {
+        let t_obj = m_contents_list[i];
+        t_html += "<li class='item' code='" + t_obj.id + "'>";
+        t_html += "    <div class='img_zone'>";
+        t_html += "        <img src="+convFilePath(t_obj.THUM_URL)+">";
+        t_html += "    <div>";
+        t_html += "    <a>" + t_obj.title + "</a>";
+        t_html += "</lis>";
+    }
+    $('#id_main_page_list').append(t_html);
+    
+    m_main_swiper.update(); // 스와이퍼 업데이트
+    m_main_swiper.slideTo(0, 0);
+    
     setTimeout(function () {
         setHideCover();
     }, 500);
@@ -97,6 +164,7 @@ function setInitSetting(_ret_code) {
 
 function setMainReset() {
     console.log("setMainReset");
+    setScreenAuto();
 }
 
 function setInitFsCommand() {
@@ -114,10 +182,10 @@ function setCommand(_data) {
 }
 
 function setScreenAuto() {
-    if ($("#id_main_screen").css("display") == "none") {
+    if ($(".screen_page").css("display") == "none") {
         clearTimeout(setTimeoutID);
         setNoticeDrawInfo();
-        $("#id_main_screen").show();
+        $(".screen_page").show();
     }
 }
 
@@ -202,6 +270,19 @@ function setMainTimeOut() {
     }
 }
 
+function onClickScreenSaver() {
+    if ($(".screen_page").css("display") == "none") {
+        return;
+    }
+    try {
+        $("#id_screen_area_01").children("video")[0].pause();
+    } catch (err) {}
+    try {
+        $("#id_screen_area_02").children("video")[0].pause();
+    } catch (err) {}
+    $(".screen_page").hide();
+    clearTimeout(setTimeoutID);
+}
 
 
 

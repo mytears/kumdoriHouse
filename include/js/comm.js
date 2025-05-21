@@ -204,9 +204,24 @@ function onReadSockContents() {
 }
 
 //이미지 주소를 보정
+
+//이미지 주소를 보정
 function convFilePath(_path) {
     let t_path = "";
-    if (m_notice_mode == "web") {
+
+    if (_path.startsWith("commonfiles") || _path.startsWith("/commonfiles") || _path.startsWith("\commonfiles") || _path.startsWith("\\commonfiles")) {
+        if (m_notice_mode == "web") {
+            t_path = m_root_url + _path.replace(/^commonfiles\//, '');
+        } else {
+            t_path = _path; // commonfiles가 포함되어 있으면 그대로 반환
+        }
+    } else if (_path.startsWith("images") || _path.startsWith("/images") || _path.startsWith("\images") || _path.startsWith("\\images")) {
+        if (m_notice_mode == "web") {
+            t_path = m_root_url + _path;
+        } else {
+            t_path = _path;
+        }
+    } else if (m_notice_mode == "web") {
         t_path = m_root_url + _path.replace(/^commonfiles\//, '');
     } else {
         t_path = _path;

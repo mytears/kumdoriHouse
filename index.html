@@ -11,13 +11,17 @@
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="include/css/common.css">
-    <link rel="stylesheet" href="include/css/index.css">
+    <link rel="stylesheet" href="include/css/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="include/css/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="include/css/common.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="include/css/index.css" rel="stylesheet" type="text/css" />
 
     <script src="include/js/lib/jquery.min.js"></script>
     <script src="include/js/lib/jquery.ripples.min.js"></script>
+    <script src="include/js/lib/swiper-bundle.min.js"></script>
     <script src="include/js/lib/gsap.min.js"></script>
     <script src="include/js/lib/MotionPathPlugin.min.js"></script>
+    <script src="include/js/lib/sweetalert2.min.js"></script>
     <script src="include/js/xml.js"></script>
     <script src="include/js/comm.js"></script>
     <script src="include/js/index.js"></script>
@@ -40,14 +44,24 @@
                         <source src="">
                     </video></div>
                 <div class="index_btm">
-                    <div><img src="images/intro_img.png" alt=""></div>
-                    <div class="txt">
+                    <div class="img_zone"><img src="images/intro_img.png" alt=""></div>
+                    <div class="txt_zone">
                         <b>화면을 터치해 주세요</b>
                     </div>
                 </div>
             </div>
         </div>
         <div class="main_page">
+            <div class="top_zone">
+                <img src="images/sub_bg1.png"/>
+            </div>
+            <div class="mid_zone">
+                <div id="id_main_list" class="main_list" style="display: no1ne">
+                    <div id="id_main_list_wrapper" class="swiper-wrapper">
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
         </div>
         <div class="popup_page">
         </div>

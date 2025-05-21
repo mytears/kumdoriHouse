@@ -50,11 +50,21 @@
 
 .index_btm {
     position: absolute;
+    width: 100%;
     z-index: 10;
-    bottom: 0px;
+    bottom: 102px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.index_btm .txt {
+.screen_page{
+    position: absolute;
+    z-index: 999;
+}
+
+.index_btm .txt_zone {
     width: 830px;
     height: 140px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -62,6 +72,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.index_btm .img_zone {
+    transform: translateY(13%);
+}
+
+.main_page{
+    position: absolute;
 }
 
 

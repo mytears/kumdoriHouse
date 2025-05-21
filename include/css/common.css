@@ -348,11 +348,11 @@ input:focus {
 
 .zdebug_img {
     position: absolute;
-    z-index: 1;
+    z-index: 11;
     left: 0;
     top: 0;
-    width: 2160px;
-    height: 3840px;
+    width: 1080px;
+    height: 1920px;
 }
 
 .zdebug_img img {

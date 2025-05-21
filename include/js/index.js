@@ -117,7 +117,7 @@ function setInitSetting(_ret_code) {
     let page_cnt = Math.ceil(m_contents_list.length / t_max);
     for (let i = 0; i < page_cnt; i += 1) {
         t_html += "<div id='id_main_list_slide_" + i + "' class='swiper-slide'>";
-        t_html += "    <ul id='id_main_list_wrap_" + i + "' class='swiper-slide-container list list_typeG'>";
+        t_html += "    <ul id='id_main_list_wrap_" + i + "' class='swiper-slide-container item_list'>";
         t_html += '    </ul>';
         t_html += '</div>';
     }
@@ -131,28 +131,17 @@ function setInitSetting(_ret_code) {
         r_html += "         <div class='img_zone'>";
         r_html += "              <img src="+convFilePath(t_obj.THUM_URL)+">";
         t_html += "         <div>";
-        r_html += "         <div class='txt'>";
-        r_html += "             <p><span>' + convStr(t_obj.CONTENTS_NAME) + '</span>' + '</p>";
+        r_html += "         <div class='txt_zone'>";
+        r_html += "             <p><span>" + convStr(t_obj.CONTENTS_NAME) + "</span></p>";
         r_html += "          </div>";
         r_html += "      </div>";
         r_html += "</li>";
 
         $('#id_main_list_wrap_' + t_id).append(r_html);
-        r_html = '';
+        r_html = "";
     }
     
     
-    
-    for (let i = 0; i < m_contents_list.length; i += 1) {
-        let t_obj = m_contents_list[i];
-        t_html += "<li class='item' code='" + t_obj.id + "'>";
-        t_html += "    <div class='img_zone'>";
-        t_html += "        <img src="+convFilePath(t_obj.THUM_URL)+">";
-        t_html += "    <div>";
-        t_html += "    <a>" + t_obj.title + "</a>";
-        t_html += "</lis>";
-    }
-    $('#id_main_page_list').append(t_html);
     
     m_main_swiper.update(); // 스와이퍼 업데이트
     m_main_swiper.slideTo(0, 0);

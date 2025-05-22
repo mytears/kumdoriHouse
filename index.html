@@ -52,13 +52,39 @@
             </div>
         </div>
         <div class="main_page">
+            <img class="img_char pause" src="images/sub_img.png" />
             <div class="top_zone">
-                <img src="images/sub_bg1.png" />
+                <img class="img_bg" src="images/sub_bg1.png" />
+                <div class="txt_zone">
+                    <div class="txt_big">Daejeon &amp;<br>Media Art</div>
+                    <div class="txt_small">원하시는 컨텐츠를 선택해주세요</div>
+                </div>
             </div>
             <div class="mid_zone">
-                <div id="id_main_list" class="swiper-container main_list" style="display: no1ne">
-                    <div id="id_main_list_wrapper" class="swiper-wrapper">
+                <div class="control_area" style="display: none">
+                    <div class="title_zone">
+                        <div class="txt_wrap">
+                            <div class="txt_title"></div>
+                        </div>
+                        <div class="txt_desc"></div>
                     </div>
+                    <div class="control_zone">
+                        <div class="btn_play btn_obj">
+                            <div class="btn_zone"><img src="images/bt_play.svg"><img src="images/bt_play_o.svg"></div>재생
+                        </div>
+                        <div class="btn_stop btn_obj" style="display: none">
+                            <div class="btn_zone"><img src="images/bt_stop.svg"><img src="images/bt_stop_o.svg"></div>정지
+                        </div>
+                        <div class="btn_close btn_obj">
+                            <div class="btn_zone"><img src="images/bt_close.svg"><img src="images/bt_close_o.svg"></div>닫기
+                        </div>
+                    </div>
+                </div>
+                <div id="id_main_list" class="swiper-container main_list" style="display: no1ne">
+                    <div id="id_main_list_wrapper" class="swiper-wrapper main_wrapper">
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
@@ -66,7 +92,7 @@
         <div class="popup_page">
         </div>
     </div>
-<!--    <div class="zdebug_img" style="display:no1ne;"><img src="images/zguide/3_1.jpg"></div>-->
+    <!--    <div class="zdebug_img" style="display:no1ne;"><img src="images/zguide/3_1.jpg"></div>-->
 </body></html>
 
 

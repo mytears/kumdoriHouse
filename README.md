@@ -1,1 +1,1 @@
-https://mytears.github.io/kumdoriHouse/
+https://mytears.github.io/kumdoriHouseKiosk/

@@ -51,18 +51,16 @@ function setParsingContentsXml(xmlDoc) {
 
             obj.ID = setConvXmlTag(node.getAttribute("id"));
             obj.TYPE = setConvXmlTag(node.getAttribute("type"));
+            obj.SORT = setConvXmlTag(node.getAttribute("sort"));
+            obj.RATIO = setConvXmlTag(node.getAttribute("ratio"));
 
             var schNode = node.getElementsByTagName("SCH_TYPE")[0];
             if (schNode) {
-                obj.SCH_TYPE = setConvXmlTag(schNode.textContent || "");
                 obj.SDAY = setConvXmlTag(schNode.getAttribute("sday"));
                 obj.EDAY = setConvXmlTag(schNode.getAttribute("eday"));
                 obj.STIME = setConvXmlTag(schNode.getAttribute("stime"));
                 obj.ETIME = setConvXmlTag(schNode.getAttribute("etime"));
             }
-
-            var nameNode = node.getElementsByTagName("NOTICE_NAME")[0];
-            obj.NOTICE_NAME = setConvXmlTag(nameNode ? nameNode.textContent : "");
 
             var fileNode = node.getElementsByTagName("FILE_URL")[0];
             obj.FILE_URL = setConvXmlTag(fileNode ? fileNode.textContent : "");
@@ -88,28 +86,25 @@ function setParsingContentsXml(xmlDoc) {
 
         // CONTENTS_LIST 처리
         m_contents_list = [];
-        var contentInfos = root.getElementsByTagName("CONTENTS_INFO");
+        var contentInfos = root.getElementsByTagName("MEDIA_INFO");
         for (var i = 0; i < contentInfos.length; i++) {
             var node = contentInfos[i];
             var obj = {};
 
             obj.ID = setConvXmlTag(node.getAttribute("id"));
-            obj.TYPE = setConvXmlTag(node.getAttribute("type"));
+            //obj.TYPE = setConvXmlTag(node.getAttribute("type"));
 
             var schNode = node.getElementsByTagName("SCH_TYPE")[0];
             if (schNode) {
-                obj.SCH_TYPE = setConvXmlTag(schNode.textContent || "");
+                //obj.SCH_TYPE = setConvXmlTag(schNode.textContent || "");
                 obj.SDAY = setConvXmlTag(schNode.getAttribute("sday"));
                 obj.EDAY = setConvXmlTag(schNode.getAttribute("eday"));
                 obj.STIME = setConvXmlTag(schNode.getAttribute("stime"));
                 obj.ETIME = setConvXmlTag(schNode.getAttribute("etime"));
             }
 
-            var nameNode = node.getElementsByTagName("CONTENTS_NAME")[0];
+            var nameNode = node.getElementsByTagName("BTN_NAME")[0];
             obj.CONTENTS_NAME = setConvXmlTag(nameNode ? nameNode.textContent : "");
-
-            var fileNode = node.getElementsByTagName("FILE_URL")[0];
-            obj.FILE_URL = setConvXmlTag(fileNode ? fileNode.textContent : "");
 
             var thumNode = node.getElementsByTagName("THUM_URL")[0];
             obj.THUM_URL = setConvXmlTag(thumNode ? thumNode.textContent : "");

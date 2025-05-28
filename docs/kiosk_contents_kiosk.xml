@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DATA>
+    <HEADER>
+        <KIOSK_CODE>H001KIO</KIOSK_CODE>
+        <BG_URL>datafiles/did/20250526/D_0000000012_MAIN.png</BG_URL>
+    </HEADER>
+    <CONTENTS>
+        <NOTICE_LIST>
+            <NOTICE_INFO>
+                <ID>12</ID>
+                <SORT>1</SORT>
+                <TYPE>IMG</TYPE>
+                <RATIO>F</RATIO>
+                <SDAY>20240101</SDAY>
+                <EDAY>23001231</EDAY>
+                <STIME>0000</STIME>
+                <ETIME>2359</ETIME>
+                <PLAY_TIME>30</PLAY_TIME>
+                <FILE_URL>datafiles/did/20250526/D_0000000012_MAIN.png</FILE_URL>
+            </NOTICE_INFO>
+            <NOTICE_INFO>
+                <ID>11</ID>
+                <SORT>2</SORT>
+                <TYPE>IMG</TYPE>
+                <RATIO>F</RATIO>
+                <SDAY>20240101</SDAY>
+                <EDAY>23001231</EDAY>
+                <STIME>0000</STIME>
+                <ETIME>2359</ETIME>
+                <PLAY_TIME>30</PLAY_TIME>
+                <FILE_URL>datafiles/did/20250526/D_0000000011_MAIN.png</FILE_URL>
+            </NOTICE_INFO>
+            </NOTICE_LIST>
+        <MEDIA_LIST>
+            <MEDIA_INFO>
+                <ID>4</ID>
+                <BTN_NAME>미디어 아트-03</BTN_NAME>
+                <FILE_URL>datafiles/pt/20250526/I_0000000004_THUMB.jpg</FILE_URL>
+            </MEDIA_INFO>
+            <MEDIA_INFO>
+                <ID>3</ID>
+                <BTN_NAME>미디어 아트-02</BTN_NAME>
+                <FILE_URL>datafiles/pt/20250526/I_0000000003_THUMB.jpg</FILE_URL>
+            </MEDIA_INFO>
+            <MEDIA_INFO>
+                <ID>2</ID>
+                <BTN_NAME>미디어 아트-01</BTN_NAME>
+                <FILE_URL>datafiles/pt/20250526/I_0000000002_THUMB.jpg</FILE_URL>
+            </MEDIA_INFO>
+            </MEDIA_LIST>
+        </CONTENTS>
+</DATA>

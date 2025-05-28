@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <KIOSK>
     <HEADER>
+        <KIOSK_CODE>H001KIO</KIOSK_CODE>
+        <BG_URL>datafiles/did/20250526/D_0000000012_MAIN.png</BG_URL>
     </HEADER>
     <NOTICE_LIST>
         <NOTICE_INFO id="12" sort="2" type="IMG" ratio="F">

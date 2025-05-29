@@ -2,12 +2,8 @@
 <KIOSK>
     <HEADER>
         <KIOSK_CODE>H001KIO</KIOSK_CODE>
-<<<<<<< Updated upstream
-        <BG_URL>datafiles/did/20250526/D_0000000012_MAIN.png</BG_URL>
-=======
         <BG_URL>commonfiles/bg/sub_bg1.png</BG_URL>
         <WAITING_TIME>180</WAITING_TIME>
->>>>>>> Stashed changes
     </HEADER>
     <NOTICE_LIST>
         <NOTICE_INFO id="12" sort="2" type="IMG" ratio="F">

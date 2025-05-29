@@ -29,15 +29,8 @@ function setParsingContentsXml(xmlDoc) {
                 return setConvXmlTag(el ? el.textContent : "");
             }
 
-            m_header.RET_CODE = getTagText("RET_CODE");
-            m_header.BRN_CODE = getTagText("BRN_CODE");
-            m_header.KIOSK_PASSWD = getTagText("KIOSK_PASSWD");
-            m_header.KIOSK_ID = getTagText("KIOSK_ID");
-            m_header.KIOSK_CODE = getTagText("KIOSK_CODE");
-            m_header.KIOSK_SECT = getTagText("KIOSK_SECT");
-            m_header.KIOSK_TYPE = getTagText("KIOSK_TYPE");
-            m_header.URL_REPORT = getTagText("URL_REPORT");
-            m_header.URL_STATUS = getTagText("URL_STATUS");
+            m_header.BG_URL = getTagText("BG_URL");
+            m_header.WAITING_TIME = getTagText("WAITING_TIME");
 
             ret_code = m_header.RET_CODE;
         }

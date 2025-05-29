@@ -21,6 +21,8 @@ let m_default_font_size = 90;
 let m_curr_obj = null;
 
 let m_main_swiper = null;
+let m_str_show = "";
+let m_str_hide = "";
 
 function setInit() {
     m_main_swiper = new Swiper('.main_list', {
@@ -40,6 +42,11 @@ function setInit() {
         },
     });
 
+
+    $(".btn_home").on("touchstart mousedown", function (e) {
+        e.preventDefault();
+        onClickBtnHome(this);
+    });
 
     $(".btn_play").on("touchstart mousedown", function (e) {
         e.preventDefault();
@@ -81,7 +88,7 @@ function setMainInterval() {
     time_gap = time_curr - m_time_last;
     time_gap = Math.floor(time_gap / 1000);
     
-    if (time_gap >= 180) {
+    if (time_gap >= parseInt(m_header.WAITING_TIME)) {
         m_time_last = new Date().getTime();
         setMainReset();
     }
@@ -133,6 +140,8 @@ function setInitSetting(_ret_code) {
     //console.log(m_notice_list);
     //console.log(m_contents_list);
 
+    $("#id_img_bg").attr("src", m_header.BG_URL);
+    
     setNoticeDrawInfo();
 
     $('#id_main_list_wrapper').html("");
@@ -185,6 +194,10 @@ function onClickItem(_num) {
     $(".control_area").fadeIn();
 }
 
+function onClickBtnHome(_obj){
+    setMainReset();
+}
+
 function onClickBtnStop(_obj) {
     //console.log(m_curr_obj);
     $(".btn_play").show();
@@ -217,8 +230,11 @@ function setMainReset() {
     console.log("setMainReset");
     $(".img_char").addClass("pause");
     setScreenAuto();
+    $(".control_area").hide();
     m_main_swiper.slideTo(0, 0);
     m_curr_obj = null;
+    
+    setCallWebToApp('UDP_SEND', "RESET");
 }
 
 function setInitFsCommand() {
@@ -245,8 +261,6 @@ function setScreenAuto() {
 
 function setNoticeDrawInfo() {
     var str_type = "";
-    var str_show = "",
-        str_hide = "";
     if (m_notice_list.length == 0) return;
 
     m_curr_notice_cnt++;
@@ -256,32 +270,30 @@ function setNoticeDrawInfo() {
 
     if (m_curr_notice == 1) {
         m_curr_notice = 2;
-
-        str_show = "id_notice_box_02";
-        str_hide = "id_notice_box_01";
-
-        $("#id_notice_box_01").css("zIndex", 10);
-        $("#id_notice_box_02").css("zIndex", 9);
+        m_str_show = "id_notice_box_02";
+        m_str_hide = "id_notice_box_01";
     } else {
         m_curr_notice = 1;
 
-        str_show = "id_notice_box_01";
-        str_hide = "id_notice_box_02";
-
-        $("#id_notice_box_01").css("zIndex", 10);
-        $("#id_notice_box_02").css("zIndex", 9);
+        m_str_show = "id_notice_box_01";
+        m_str_hide = "id_notice_box_02";
     }
-
+    $("#" + m_str_hide).css("zIndex", 9);
+    $("#" + m_str_show).css("zIndex", 10);
+    
+    $("#" + m_str_hide).show();
+    $("#" + m_str_show).hide();
+    
     if (obj.TYPE == "IMG") {
-        $("#" + str_show + " > img").attr("src", m_root_url + obj.FILE_URL);
-        $("#" + str_show + " > video").hide();
-        $("#" + str_show).children("video")[0].pause();
-        $("#" + str_show + " > img").show();
+        $("#" + m_str_show + " > img").attr("src", m_root_url + obj.FILE_URL);
+        $("#" + m_str_show + " > video").hide();
+        $("#" + m_str_show).children("video")[0].pause();
+        $("#" + m_str_show + " > img").show();
     } else {
-        $("#" + str_show + " > video").attr("src", m_root_url + obj.FILE_URL);
-        $("#" + str_show + " > video").show();
-        $("#" + str_show + " > img").hide();
-        $("#" + str_show).children("video")[0].play();
+        $("#" + m_str_show + " > video").attr("src", m_root_url + obj.FILE_URL);
+        $("#" + m_str_show + " > video").show();
+        $("#" + m_str_show + " > img").hide();
+        $("#" + m_str_show).children("video")[0].play();
     }
     m_curr_notice_type = obj.TYPE;
     m_curr_notice_ptime = obj.PTIME;
@@ -289,7 +301,8 @@ function setNoticeDrawInfo() {
     m_curr_notice_ptime = m_curr_notice_ptime * 1000;
     clearTimeout(setTimeoutID);
     setTimeoutID = setTimeout(setMainTimeOut, m_curr_notice_ptime);
-    setTimeout(setNoticeDrawInfoEnd, 10);
+    $("#" + m_str_show).fadeIn();
+    setTimeout(setNoticeDrawInfoEnd, 500);
 }
 
 function getFileExtension(filename) {
@@ -297,23 +310,7 @@ function getFileExtension(filename) {
 }
 
 function setNoticeDrawInfoEnd() {
-    if (m_notice_list.length == 1) {
-        if (m_curr_notice == 1) {
-            $("#id_notice_box_01").show();
-            $("#id_notice_box_02").hide();
-        } else {
-            $("#id_notice_box_01").hide();
-            $("#id_notice_box_02").show();
-        }
-    } else {
-        if (m_curr_notice == 1) {
-            $("#id_notice_box_01").show();
-            $("#id_notice_box_02").hide();
-        } else {
-            $("#id_notice_box_01").hide();
-            $("#id_notice_box_02").show();
-        }
-    }
+    $("#" + m_str_hide).hide();
 }
 
 function setMainTimeOut() {

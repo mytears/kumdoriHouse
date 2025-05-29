@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 110 110">
+  <g id="bt_home" transform="translate(-925 -1145)">
+    <circle id="타원_1" data-name="타원 1" cx="55" cy="55" r="55" transform="translate(925 1145)" fill="#f6f4fb"/>
+    <path id="빼기_1" data-name="빼기 1" d="M12.164,45.846c-7.861,0-11.9-.05-12-.149C-.18,45.38.123,21.17.159,18.412v-.031L22.706,0,45.848,18.381V45.7h-.235c-3.627.026-10.877.074-18.684.108V31.987H18.793v13.85C16.417,45.844,14.187,45.846,12.164,45.846Z" transform="translate(957.076 1173.077)" fill="#9f9aae"/>
+  </g>
+</svg>

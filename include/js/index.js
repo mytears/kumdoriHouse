@@ -23,6 +23,7 @@ let m_curr_obj = null;
 let m_main_swiper = null;
 let m_str_show = "";
 let m_str_hide = "";
+let m_is_playing = false;
 
 function setInit() {
     m_main_swiper = new Swiper('.main_list', {
@@ -88,11 +89,25 @@ function setMainInterval() {
     time_gap = time_curr - m_time_last;
     time_gap = Math.floor(time_gap / 1000);
     
+    if(m_is_playing == false){  //동영상 재생중 아님
+        if(time_gap >= 180){
+            m_time_last = new Date().getTime();
+            setMainReset();
+        }
+    }
+    /*
     if (time_gap >= parseInt(m_header.WAITING_TIME)) {
         m_time_last = new Date().getTime();
         setMainReset();
     }
+    
+    if (time_gap >= 180) {
+        m_time_last = new Date().getTime();
+        setMainReset();
+    }
+    */
 
+    
     m_status_time_chk += 1;
     if (m_status_time_chk > 10) {
         m_status_time_chk = 0;
@@ -204,7 +219,8 @@ function onClickBtnStop(_obj) {
     $(".btn_stop").hide();
     $(".txt_desc").html("재생 버튼을 누르시면 영상이 재생됩니다");
     
-    setCallWebToApp('UDP_SEND', "STOP|"+m_curr_obj.ID);
+    setCallWebToApp("UDP_SEND", "STOP|"+m_curr_obj.ID);
+    m_is_playing = false;
 }
 
 function onClickBtnPlay(_obj) {
@@ -213,13 +229,15 @@ function onClickBtnPlay(_obj) {
     $(".btn_stop").show();
     $(".txt_desc").html("재생중입니다");
     
-    setCallWebToApp('UDP_SEND', "PLAY|"+m_curr_obj.ID);
+    setCallWebToApp("UDP_SEND", "PLAY|"+m_curr_obj.ID);
+    m_is_playing = true;
 }
 
 function onClickBtnClose(_obj) {
     //console.log(m_curr_obj);
     if ($(".btn_stop").css("display") != "none") {
-        setCallWebToApp('UDP_SEND', "STOP|"+m_curr_obj.ID);
+        setCallWebToApp("UDP_SEND", "STOP|"+m_curr_obj.ID);
+        m_is_playing = false;
     }
     $(".txt_desc").html("&nbsp;");
     $(".control_area").fadeOut();
@@ -234,7 +252,7 @@ function setMainReset() {
     m_main_swiper.slideTo(0, 0);
     m_curr_obj = null;
     
-    setCallWebToApp('UDP_SEND', "RESET");
+    setCallWebToApp("UDP_SEND", "RESET");
 }
 
 function setInitFsCommand() {
@@ -247,8 +265,21 @@ function setInitFsCommand() {
 }
 
 function setCommand(_data) {
-    console.log("setCommand", _data);
-    const parts = _data.trim().split('|');
+    console.log("setCommand", _str);
+    let t_list = _str.split("|");
+    let cmd = t_list[0];
+    let arg = t_list[1];
+    let t_arg_list = arg.split(",");
+    
+    if (cmd.toUpperCase() == "UDP_RECV") {
+        if(t_arg_list[0] == "STOP"){
+            m_is_playing = false;
+            m_time_last = new Date().getTime();
+            $(".btn_play").show();
+            $(".btn_stop").hide();
+            $(".txt_desc").html("재생 버튼을 누르시면 영상이 재생됩니다");
+        }
+    } 
 }
 
 function setScreenAuto() {

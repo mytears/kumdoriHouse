@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<KIOSK>
+<DATA>
     <HEADER>
         <KIOSK_CODE>H001KIO</KIOSK_CODE>
         <BG_URL>commonfiles/bg/sub_bg1.png</BG_URL>
@@ -133,4 +133,4 @@
             <THUM_URL>commonfiles/contents/vod_08.jpg</THUM_URL>
         </MEDIA_INFO>
     </MEDIA_LIST>
-</KIOSK>
+</DATA>

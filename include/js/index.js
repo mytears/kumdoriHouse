@@ -109,7 +109,7 @@ function setMainInterval() {
 
     
     m_status_time_chk += 1;
-    if (m_status_time_chk > 10) {
+    if (m_status_time_chk > 60) {
         m_status_time_chk = 0;
         setCallWebToApp('STATUS', 'STATUS');
         if ($(".screen_page").css("display") == "none") {
@@ -219,7 +219,7 @@ function onClickBtnStop(_obj) {
     $(".btn_stop").hide();
     $(".txt_desc").html("재생 버튼을 누르시면 영상이 재생됩니다");
     
-    setCallWebToApp("UDP_SEND", "STOP|"+m_curr_obj.ID);
+    setCallWebToApp("UDP_SEND", "KIOSK|STOP|"+m_curr_obj.ID);
     m_is_playing = false;
 }
 
@@ -229,14 +229,14 @@ function onClickBtnPlay(_obj) {
     $(".btn_stop").show();
     $(".txt_desc").html("재생중입니다");
     
-    setCallWebToApp("UDP_SEND", "PLAY|"+m_curr_obj.ID);
+    setCallWebToApp("UDP_SEND", "KIOSK|PLAY|"+m_curr_obj.ID);
     m_is_playing = true;
 }
 
 function onClickBtnClose(_obj) {
     //console.log(m_curr_obj);
     if ($(".btn_stop").css("display") != "none") {
-        setCallWebToApp("UDP_SEND", "STOP|"+m_curr_obj.ID);
+        setCallWebToApp("UDP_SEND", "KIOSK|STOP|"+m_curr_obj.ID);
         m_is_playing = false;
     }
     $(".txt_desc").html("&nbsp;");
@@ -252,7 +252,7 @@ function setMainReset() {
     m_main_swiper.slideTo(0, 0);
     m_curr_obj = null;
     
-    setCallWebToApp("UDP_SEND", "RESET");
+    setCallWebToApp("UDP_SEND", "KIOSK|RESET");
 }
 
 function setInitFsCommand() {
@@ -267,11 +267,12 @@ function setInitFsCommand() {
 function setCommand(_data) {
     console.log("setCommand", _str);
     let t_list = _str.split("|");
-    let cmd = t_list[0];
-    let arg = t_list[1];
+    let mod = t_list[0];
+    let cmd = t_list[1];
+    let arg = t_list[2];
     let t_arg_list = arg.split(",");
     
-    if (cmd.toUpperCase() == "UDP_RECV") {
+    if (mod.toUpperCase() == "WALL" && cmd.toUpperCase() == "UDP_RECV" ) {
         if(t_arg_list[0] == "STOP"){
             m_is_playing = false;
             m_time_last = new Date().getTime();

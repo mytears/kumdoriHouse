@@ -383,6 +383,11 @@
     display: none;
 }
 
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+    outline: none;
+}
+
 .swiper-button-prev {
     background-image: url('../../images/bt_page_l_o.svg');
     position: absolute;
@@ -428,4 +433,8 @@
 .swiper-pagination-bullet-active {
     color: #fff;
     background: #F9A0C8;
+}
+
+.swiper-pagination-bullet:focus {
+    outline: none;
 }

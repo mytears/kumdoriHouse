@@ -90,7 +90,8 @@ function setMainInterval() {
     time_gap = Math.floor(time_gap / 1000);
     
     if(m_is_playing == false){  //동영상 재생중 아님
-        if(time_gap >= 180){
+        //console.log(time_gap+"/"+parseInt(m_header.WAITING_TIME));
+        if(time_gap >= parseInt(m_header.WAITING_TIME)){
             m_time_last = new Date().getTime();
             setMainReset();
         }
@@ -219,7 +220,7 @@ function onClickBtnStop(_obj) {
     $(".btn_stop").hide();
     $(".txt_desc").html("재생 버튼을 누르시면 영상이 재생됩니다");
     
-    setCallWebToApp("UDP_SEND", "KIOSK|STOP|"+m_curr_obj.ID);
+    setCallWebToApp("UDP_SEND", "KIOSK|STOP,"+m_curr_obj.ID);
     m_is_playing = false;
 }
 
@@ -229,16 +230,19 @@ function onClickBtnPlay(_obj) {
     $(".btn_stop").show();
     $(".txt_desc").html("재생중입니다");
     
-    setCallWebToApp("UDP_SEND", "KIOSK|PLAY|"+m_curr_obj.ID);
+    setCallWebToApp("UDP_SEND", "KIOSK|PLAY,"+m_curr_obj.ID);
     m_is_playing = true;
 }
 
 function onClickBtnClose(_obj) {
     //console.log(m_curr_obj);
+    /*
     if ($(".btn_stop").css("display") != "none") {
-        setCallWebToApp("UDP_SEND", "KIOSK|STOP|"+m_curr_obj.ID);
+        setCallWebToApp("UDP_SEND", "KIOSK|STOP,"+m_curr_obj.ID);
         m_is_playing = false;
     }
+    */
+    setCallWebToApp("UDP_SEND", "KIOSK|RESET,0");
     $(".txt_desc").html("&nbsp;");
     $(".control_area").fadeOut();
     m_curr_obj = null;
@@ -246,13 +250,16 @@ function onClickBtnClose(_obj) {
 
 function setMainReset() {
     console.log("setMainReset");
+    if ($(".screen_page").css("display") != "none") {
+        return;
+    }
     $(".img_char").addClass("pause");
     setScreenAuto();
     $(".control_area").hide();
     m_main_swiper.slideTo(0, 0);
     m_curr_obj = null;
     
-    setCallWebToApp("UDP_SEND", "KIOSK|RESET");
+    setCallWebToApp("UDP_SEND", "KIOSK|RESET,0");
 }
 
 function setInitFsCommand() {
@@ -264,11 +271,11 @@ function setInitFsCommand() {
     }
 }
 
-function setCommand(_data) {
+function setCommand(_str) {
     console.log("setCommand", _str);
     let t_list = _str.split("|");
-    let mod = t_list[0];
-    let cmd = t_list[1];
+    let cmd = t_list[0];
+    let mod = t_list[1];
     let arg = t_list[2];
     let t_arg_list = arg.split(",");
     

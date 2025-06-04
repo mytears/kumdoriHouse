@@ -10,10 +10,6 @@
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
             <FILE_URL ptime="10.0">commonfiles/notice/intro_bg1_small.png</FILE_URL>
         </NOTICE_INFO>
-        <NOTICE_INFO id="12" sort="3" type="MOV" ratio="F">
-            <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <FILE_URL ptime="9.0">commonfiles/notice/4_vod_0900_re.mp4</FILE_URL>
-        </NOTICE_INFO>
         <NOTICE_INFO id="13" sort="1" type="IMG" ratio="F">
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
             <FILE_URL ptime="10.0">commonfiles/notice/intro_bg2_big.png</FILE_URL>
@@ -22,115 +18,73 @@
     <MEDIA_LIST>
         <MEDIA_INFO id="1">
             <BTN_NAME>
-                <![CDATA[타이틀 글자수 테스트용 동영상 001]]>
+                <![CDATA[영상 001]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_01.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/1.jpg</THUM_URL>
         </MEDIA_INFO>
         <MEDIA_INFO id="2">
             <BTN_NAME>
                 <![CDATA[영상 002]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_02.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/2.jpg</THUM_URL>
         </MEDIA_INFO>
         <MEDIA_INFO id="3">
             <BTN_NAME>
                 <![CDATA[영상 003]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_03.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/3.jpg</THUM_URL>
         </MEDIA_INFO>
         <MEDIA_INFO id="4">
             <BTN_NAME>
-                <![CDATA[테스트용 동영상 004]]>
+                <![CDATA[영상 004]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_04.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/4.jpg</THUM_URL>
         </MEDIA_INFO>
         <MEDIA_INFO id="5">
             <BTN_NAME>
                 <![CDATA[영상 005]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_05.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/5.jpg</THUM_URL>
         </MEDIA_INFO>
         <MEDIA_INFO id="6">
             <BTN_NAME>
                 <![CDATA[영상 006]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_06.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/6.jpg</THUM_URL>
         </MEDIA_INFO>
         <MEDIA_INFO id="7">
             <BTN_NAME>
-                <![CDATA[테스트용 동영상 007]]>
+                <![CDATA[영상 007]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_07.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/7.jpg</THUM_URL>
         </MEDIA_INFO>
         <MEDIA_INFO id="8">
             <BTN_NAME>
                 <![CDATA[영상 008]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_08.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/8.jpg</THUM_URL>
         </MEDIA_INFO>
-        <MEDIA_INFO id="11">
+        <MEDIA_INFO id="9">
             <BTN_NAME>
-                <![CDATA[타이틀 글자수 테스트용 동영상 001]]>
+                <![CDATA[영상 009]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_01.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/9.jpg</THUM_URL>
         </MEDIA_INFO>
-        <MEDIA_INFO id="12">
+        <MEDIA_INFO id="10">
             <BTN_NAME>
-                <![CDATA[영상 002]]>
+                <![CDATA[영상 010]]>
             </BTN_NAME>
             <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_02.jpg</THUM_URL>
-        </MEDIA_INFO>
-        <MEDIA_INFO id="13">
-            <BTN_NAME>
-                <![CDATA[영상 003]]>
-            </BTN_NAME>
-            <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_03.jpg</THUM_URL>
-        </MEDIA_INFO>
-        <MEDIA_INFO id="14">
-            <BTN_NAME>
-                <![CDATA[테스트용 동영상 004]]>
-            </BTN_NAME>
-            <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_04.jpg</THUM_URL>
-        </MEDIA_INFO>
-        <MEDIA_INFO id="15">
-            <BTN_NAME>
-                <![CDATA[영상 005]]>
-            </BTN_NAME>
-            <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_05.jpg</THUM_URL>
-        </MEDIA_INFO>
-        <MEDIA_INFO id="16">
-            <BTN_NAME>
-                <![CDATA[영상 006]]>
-            </BTN_NAME>
-            <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_06.jpg</THUM_URL>
-        </MEDIA_INFO>
-        <MEDIA_INFO id="17">
-            <BTN_NAME>
-                <![CDATA[테스트용 동영상 007]]>
-            </BTN_NAME>
-            <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_07.jpg</THUM_URL>
-        </MEDIA_INFO>
-        <MEDIA_INFO id="18">
-            <BTN_NAME>
-                <![CDATA[영상 008]]>
-            </BTN_NAME>
-            <SCH_TYPE sday="20230112" eday="21230228" stime="0000" etime="2359"></SCH_TYPE>
-            <THUM_URL>commonfiles/contents/vod_08.jpg</THUM_URL>
+            <THUM_URL>commonfiles/contents/10.jpg</THUM_URL>
         </MEDIA_INFO>
     </MEDIA_LIST>
 </DATA>

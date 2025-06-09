@@ -324,15 +324,27 @@ function setNoticeDrawInfo() {
     $("#" + m_str_show).hide();
     
     if (obj.TYPE == "IMG") {
+        if (obj.RATIO == "F") {
+            $("#" + m_str_show + " > img").addClass("full_size");
+        } else if (obj.RATIO == "R") {
+            $("#" + m_str_show + " > img").removeClass("full_size");
+        }
         $("#" + m_str_show + " > img").attr("src", m_root_url + obj.FILE_URL);
         $("#" + m_str_show + " > video").hide();
         $("#" + m_str_show).children("video")[0].pause();
         $("#" + m_str_show + " > img").show();
     } else {
+        if (obj.RATIO == "F") {
+            $("#" + m_str_show + " > video").addClass("full_size");
+        } else if (obj.RATIO == "R") {
+            $("#" + m_str_show + " > video").removeClass("full_size");
+        }
         $("#" + m_str_show + " > video").attr("src", m_root_url + obj.FILE_URL);
         $("#" + m_str_show + " > video").show();
         $("#" + m_str_show + " > img").hide();
-        $("#" + m_str_show).children("video")[0].play();
+        //$("#" + m_str_show).children("video")[0].play();
+        let video_id = $("#" + m_str_show + " > video").attr("id");
+        setCallWebToApp("UNMUTE", video_id);
     }
     m_curr_notice_type = obj.TYPE;
     m_curr_notice_ptime = obj.PTIME;
@@ -365,10 +377,10 @@ function onClickScreenSaver() {
         return;
     }
     try {
-        $("#id_screen_area_01").children("video")[0].pause();
+        $("#id_notice_box_01").children("video")[0].pause();
     } catch (err) {}
     try {
-        $("#id_screen_area_02").children("video")[0].pause();
+        $("#id_notice_box_02").children("video")[0].pause();
     } catch (err) {}
     $(".screen_page").fadeOut();
     clearTimeout(setTimeoutID);    

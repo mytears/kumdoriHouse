@@ -110,19 +110,20 @@
 }
 
 .index_btm .txt_zone {
-    width: 830px;
-    height: 140px;
-    background: #353537 0% 0% no-repeat padding-box;
+    width: 580px;
+    height: 100px;
+    background: #353537AA 0% 0% no-repeat padding-box;
     border-radius: 69px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     color: #EDF1F3;
+    font-size: 45px;
 }
 
 .index_btm .img_zone {
-    transform: translateY(13%);
+    transform: scale(0.75) translateY(23%);
 }
 
 .main_page {

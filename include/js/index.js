@@ -25,6 +25,12 @@ let m_str_show = "";
 let m_str_hide = "";
 let m_is_playing = false;
 
+var m_icon = null;
+var m_icon_container = null;
+var m_icon_dx = 0.75; // x축 방향 속도
+var m_icon_dy = 0.5; // y축 방향 속도
+
+
 function setInit() {
     m_main_swiper = new Swiper('.main_list', {
         spaceBetween: 0, //슬라이드 간격
@@ -88,10 +94,10 @@ function setMainInterval() {
 
     time_gap = time_curr - m_time_last;
     time_gap = Math.floor(time_gap / 1000);
-    
-    if(m_is_playing == false){  //동영상 재생중 아님
+
+    if (m_is_playing == false) { //동영상 재생중 아님
         //console.log(time_gap+"/"+parseInt(m_header.WAITING_TIME));
-        if(time_gap >= parseInt(m_header.WAITING_TIME)){
+        if (time_gap >= parseInt(m_header.WAITING_TIME)) {
             m_time_last = new Date().getTime();
             setMainReset();
         }
@@ -108,7 +114,7 @@ function setMainInterval() {
     }
     */
 
-    
+
     m_status_time_chk += 1;
     if (m_status_time_chk > 60) {
         m_status_time_chk = 0;
@@ -153,11 +159,14 @@ function setHideCover() {
 
 //초기화
 function setInitSetting(_ret_code) {
+    m_icon = $(".index_btm");
+    m_icon_container = $(".main_cont");
+    startAnimation();
     //console.log(m_notice_list);
     //console.log(m_contents_list);
 
     $("#id_img_bg").attr("src", m_header.BG_URL);
-    
+
     setNoticeDrawInfo();
 
     $('#id_main_list_wrapper').html("");
@@ -199,6 +208,41 @@ function setInitSetting(_ret_code) {
     }, 500);
 }
 
+function startAnimation() {
+    moveIcon();
+}
+
+function moveIcon() {
+    var iconPos = m_icon.position();
+    var containerWidth = m_icon_container.width();
+    var containerHeight = m_icon_container.height();
+    var iconWidth = m_icon.width();
+    var iconHeight = m_icon.height();
+    // 벽 충돌 감지
+    if (iconPos.left + m_icon_dx < 0 || iconPos.left + iconWidth + m_icon_dx > containerWidth) {
+        m_icon_dx = -m_icon_dx; // x축 방향 반전
+    }
+    if (iconPos.top + m_icon_dy < 0 || iconPos.top + iconHeight + m_icon_dy > containerHeight) {
+        m_icon_dy = -m_icon_dy; // y축 방향 반전
+    }
+
+    if ($(".screen_page").css("display") != "none") {
+        // 아이콘 위치 업데이트
+        m_icon.css({
+            left: iconPos.left + m_icon_dx,
+            top: iconPos.top + m_icon_dy
+        });
+    }else{
+        m_icon.css({
+            left: "125px",
+            top: "1350px"
+        });
+    }
+
+    requestAnimationFrame(moveIcon);
+}
+
+
 function onClickItem(_num) {
     //console.log(_num);
     $(".btn_play").show();
@@ -210,7 +254,7 @@ function onClickItem(_num) {
     $(".control_area").fadeIn();
 }
 
-function onClickBtnHome(_obj){
+function onClickBtnHome(_obj) {
     setMainReset();
 }
 
@@ -219,8 +263,8 @@ function onClickBtnStop(_obj) {
     $(".btn_play").show();
     $(".btn_stop").hide();
     $(".txt_desc").html("재생 버튼을 누르시면 영상이 재생됩니다");
-    
-    setCallWebToApp("UDP_SEND", "KIOSK|STOP,"+m_curr_obj.ID);
+
+    setCallWebToApp("UDP_SEND", "KIOSK|STOP," + m_curr_obj.ID);
     m_is_playing = false;
 }
 
@@ -229,8 +273,8 @@ function onClickBtnPlay(_obj) {
     $(".btn_play").hide();
     $(".btn_stop").show();
     $(".txt_desc").html("재생중입니다");
-    
-    setCallWebToApp("UDP_SEND", "KIOSK|PLAY,"+m_curr_obj.ID);
+
+    setCallWebToApp("UDP_SEND", "KIOSK|PLAY," + m_curr_obj.ID);
     m_is_playing = true;
 }
 
@@ -258,7 +302,7 @@ function setMainReset() {
     $(".control_area").hide();
     m_main_swiper.slideTo(0, 0);
     m_curr_obj = null;
-    
+
     setCallWebToApp("UDP_SEND", "KIOSK|RESET,0");
 }
 
@@ -278,16 +322,16 @@ function setCommand(_str) {
     let mod = t_list[1];
     let arg = t_list[2];
     let t_arg_list = arg.split(",");
-    
-    if (mod.toUpperCase() == "WALL" && cmd.toUpperCase() == "UDP_RECV" ) {
-        if(t_arg_list[0] == "STOP"){
+
+    if (cmd.toUpperCase() == "UDP_RECV" && mod.toUpperCase() == "WALL") {
+        if (t_arg_list[0] == "STOP") {
             m_is_playing = false;
             m_time_last = new Date().getTime();
             $(".btn_play").show();
             $(".btn_stop").hide();
             $(".txt_desc").html("재생 버튼을 누르시면 영상이 재생됩니다");
         }
-    } 
+    }
 }
 
 function setScreenAuto() {
@@ -319,10 +363,10 @@ function setNoticeDrawInfo() {
     }
     $("#" + m_str_hide).css("zIndex", 9);
     $("#" + m_str_show).css("zIndex", 10);
-    
+
     $("#" + m_str_hide).show();
     $("#" + m_str_show).hide();
-    
+
     if (obj.TYPE == "IMG") {
         if (obj.RATIO == "F") {
             $("#" + m_str_show + " > img").addClass("full_size");
@@ -383,15 +427,15 @@ function onClickScreenSaver() {
         $("#id_notice_box_02").children("video")[0].pause();
     } catch (err) {}
     $(".screen_page").fadeOut();
-    clearTimeout(setTimeoutID);    
-    
+    clearTimeout(setTimeoutID);
+
     $(".img_char").removeClass("pause");
-    
+
     setStartTopTextAnimation();
 }
 
-function setStartTopTextAnimation(){
-    $(".txt_small").css("opacity","0");
+function setStartTopTextAnimation() {
+    $(".txt_small").css("opacity", "0");
     setTextTypeAnimation(".txt_big", "Daejeon<br>Media Art", 0.075);
 }
 
@@ -445,8 +489,8 @@ function setTextTypeAnimation(target_selector, text, speed = 0.1) {
     });
 }
 
-function onTypeAnimationComp(){
-    
+function onTypeAnimationComp() {
+
     gsap.to($(".txt_small"), {
         startAt: {
             y: 20

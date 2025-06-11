@@ -98,9 +98,11 @@
 
 .index_btm {
     position: absolute;
-    width: 100%;
+/*    width: 100%;*/
     z-index: 10;
-    bottom: 102px;
+/*    bottom: 102px;*/
+    top:1350px;
+    left:125px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,12 +112,13 @@
 .index_btm .txt_zone {
     width: 830px;
     height: 140px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: #353537 0% 0% no-repeat padding-box;
     border-radius: 69px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    color: #EDF1F3;
 }
 
 .index_btm .img_zone {

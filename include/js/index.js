@@ -27,10 +27,19 @@ let m_is_playing = false;
 
 var m_icon = null;
 var m_icon_container = null;
-var m_icon_dx = 0.5; // x축 방향 속도
-var m_icon_dy = 0.35; // y축 방향 속도
+//var m_icon_dx = 0.5; // x축 방향 속도
+//var m_icon_dy = 0.35; // y축 방향 속도
 //var m_icon_dx = 3.25; // x축 방향 속도
 //var m_icon_dy = 2.15; // y축 방향 속도
+
+// 초당 이동 속도로 정의
+var m_icon_speed_x = 150; // 초당 30픽셀
+var m_icon_speed_y = 105; // 초당 21픽셀
+
+var m_icon_dir_x = 1; // 방향: 1 또는 -1
+var m_icon_dir_y = 1;
+
+let lastTime = performance.now();
 
 
 function setInit() {
@@ -211,30 +220,44 @@ function setInitSetting(_ret_code) {
 }
 
 function startAnimation() {
-    moveIcon();
+    lastTime = performance.now(); // 시작 시간 초기화
+    requestAnimationFrame(moveIcon);
 }
 
-function moveIcon() {
+function moveIcon(currentTime) {
+    let deltaTime = (currentTime - lastTime) / 1000; // 초 단위 시간 차이
+    lastTime = currentTime;
+
+    // deltaTime이 너무 크면 제한 (예: 최대 50ms = 0.05초)
+    if (deltaTime > 0.05) deltaTime = 0.05;
+    
     var iconPos = m_icon.position();
     var containerWidth = m_icon_container.width();
     var containerHeight = m_icon_container.height();
     var iconWidth = m_icon.width();
     var iconHeight = m_icon.height();
-    // 벽 충돌 감지
-    if (iconPos.left + m_icon_dx < 0 || iconPos.left + iconWidth + m_icon_dx > containerWidth) {
-        m_icon_dx = -m_icon_dx; // x축 방향 반전
+
+    // 프레임당 이동 거리 계산
+    let dx = m_icon_speed_x * deltaTime * m_icon_dir_x;
+    let dy = m_icon_speed_y * deltaTime * m_icon_dir_y;
+
+    //console.log(iconPos.left + iconWidth + dx, containerWidth);
+    // 충돌 감지 및 방향 반전
+    if (iconPos.left + dx < 0 || iconPos.left + iconWidth + dx > containerWidth) {
+        m_icon_dir_x *= -1;
+        dx *= -1;
     }
-    if (iconPos.top + m_icon_dy < 0 || iconPos.top + iconHeight + m_icon_dy > containerHeight) {
-        m_icon_dy = -m_icon_dy; // y축 방향 반전
+    if (iconPos.top + dy < 0 || iconPos.top + iconHeight + dy > containerHeight) {
+        m_icon_dir_y *= -1;
+        dy *= -1;
     }
 
     if ($(".screen_page").css("display") != "none") {
-        // 아이콘 위치 업데이트
         m_icon.css({
-            left: iconPos.left + m_icon_dx,
-            top: iconPos.top + m_icon_dy
+            left: iconPos.left + dx,
+            top: iconPos.top + dy
         });
-    }else{
+    } else {
         m_icon.css({
             left: "125px",
             top: "1350px"

@@ -29,6 +29,8 @@ var m_icon = null;
 var m_icon_container = null;
 var m_icon_dx = 0.5; // x축 방향 속도
 var m_icon_dy = 0.35; // y축 방향 속도
+//var m_icon_dx = 3.25; // x축 방향 속도
+//var m_icon_dy = 2.15; // y축 방향 속도
 
 
 function setInit() {
